@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nginx-autoscaler
+  namespace: my-namespace
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nginx-deployment              # Target Deployment name
+  minReplicas: 2                        # Minimum replicas
+  maxReplicas: 3                        # Maximum replicas on scaling
+  targetCPUUtilizationPercentage: 50    # Scale if CPU usage > 50%
