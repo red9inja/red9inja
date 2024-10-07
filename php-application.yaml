@@ -19,7 +19,7 @@ spec:
         - containerPort: 80
         env:
         - name: DB_HOST
-          value: "your_db_url"
+          value: "database-1.cxl4smhq2hh0.ap-southeast-2.rds.amazonaws.com"
         - name: DB_USER
           valueFrom:
             secretKeyRef:
