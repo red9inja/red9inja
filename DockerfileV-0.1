@@ -1,0 +1,11 @@
+FROM alpine:latest
+RUN apk update && \
+    apk add --no-cache nginx supervisor && \
+    mkdir -p /usr/share/nginx/html && \
+    rm -rf /var/cache/apk/* && \
+    rm -rf  /etc/nginx/http.d/default.conf
+COPY index.html /usr/share/nginx/html/index.html
+COPY default.conf /etc/nginx/http.d/ 
+COPY supervision.conf /etc/supervisor/conf.d/supervision.conf
+EXPOSE 80
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervision.conf"]

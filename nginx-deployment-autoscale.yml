@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: redninja009/nginx:latest     # Custom Nginx image use kiya
+        image: redninja009/nginx-minimal:V-04     # Custom Nginx image use kiya
         ports:
         - containerPort: 80
 
