@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: php-app
+  template:
+    metadata:
+      labels:
+        app: php-app
+    spec:
+      containers:
+      - name: php-app
+        image: php:7.4-apache
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: "database-1.cxl4smhq2hh0.ap-southeast-2.rds.amazonaws.com"  # RDS Endpoint
+        - name: DB_USER
+          value: "admin"   # RDS MySQL Username
+        - name: DB_PASSWORD
+          value: "password9090"   # RDS MySQL Password
+        - name: DB_NAME
+          value: "user_login_data_db" # RDS MySQL Database Name
