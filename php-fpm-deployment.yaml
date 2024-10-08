@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-fpm-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-fpm
+  template:
+    metadata:
+      labels:
+        app: php-fpm
+    spec:
+      containers:
+      - name: php-fpm
+        image: php:7.4-fpm
+        ports:
+        - containerPort: 9000
+        volumeMounts:
+        - name: shared-storage
+          mountPath: /var/www/html  # Mount point in the container
+      volumes:
+      - name: shared-storage
+        persistentVolumeClaim:
+          claimName: shared-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-fpm-service
+spec:
+  selector:
+    app: php-fpm
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 9000
