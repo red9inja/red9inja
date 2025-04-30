@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on [cloudflare api integration](cloudflare.vishwanathacharyadevops.one)
 
-- 👨‍💻 All of my projects are available at [vishwanathacharyadevops.one](s3.vishwanathacharyadevops.one)
+- 👨‍💻 All of my projects are available at [s3.vishwanathacharyadevops.one](s3.vishwanathacharyadevops.one)
 
 - 📫 How to reach me **vishwanathacharya14@gmail.com**
 
